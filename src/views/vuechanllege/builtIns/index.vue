@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'BuildIn'
+  name: 'BuiltIns'
 });
 </script>
 <template>
-  <div>build-in</div>
+  <div>BuiltIns</div>
 </template>
