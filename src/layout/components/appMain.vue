@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useGlobal } from "@pureadmin/utils";
-import backTop from "@/assets/svg/back_top.svg?component";
-import { h, computed, Transition, defineComponent } from "vue";
-import { usePermissionStoreHook } from "@/store/modules/permission";
+import { useGlobal } from '@pureadmin/utils';
+import backTop from '@/assets/svg/back_top.svg?component';
+import { h, computed, Transition, defineComponent } from 'vue';
+import { usePermissionStoreHook } from '@/store/modules/permission';
 
 const props = defineProps({
   fixedHeader: Boolean
@@ -25,16 +25,16 @@ const hideTabs = computed(() => {
 });
 
 const layout = computed(() => {
-  return $storage?.layout.layout === "vertical";
+  return $storage?.layout.layout === 'vertical';
 });
 
 const getSectionStyle = computed(() => {
   return [
-    hideTabs.value && layout ? "padding-top: 48px;" : "",
-    !hideTabs.value && layout ? "padding-top: 85px;" : "",
-    hideTabs.value && !layout.value ? "padding-top: 48px" : "",
-    !hideTabs.value && !layout.value ? "padding-top: 85px;" : "",
-    props.fixedHeader ? "" : "padding-top: 0;"
+    hideTabs.value && layout ? 'padding-top: 48px;' : '',
+    !hideTabs.value && layout ? 'padding-top: 85px;' : '',
+    hideTabs.value && !layout.value ? 'padding-top: 48px' : '',
+    !hideTabs.value && !layout.value ? 'padding-top: 85px;' : '',
+    props.fixedHeader ? '' : 'padding-top: 0;'
   ];
 });
 
@@ -46,17 +46,17 @@ const transitionMain = defineComponent({
         name:
           transitions.value(this.route) &&
           this.route.meta.transition.enterTransition
-            ? "pure-classes-transition"
+            ? 'pure-classes-transition'
             : (transitions.value(this.route) &&
                 this.route.meta.transition.name) ||
-              "fade-transform",
+              'fade-transform',
         enterActiveClass:
           transitions.value(this.route) &&
           `animate__animated ${this.route.meta.transition.enterTransition}`,
         leaveActiveClass:
           transitions.value(this.route) &&
           `animate__animated ${this.route.meta.transition.leaveTransition}`,
-        mode: "out-in",
+        mode: 'out-in',
         appear: true
       },
       {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useResizeObserver } from "@vueuse/core";
-import { useEpThemeStoreHook } from "@/store/modules/epTheme";
-import { useRenderIcon } from "@/components/ReIcon/src/hooks";
-import { ref, computed, getCurrentInstance, onMounted } from "vue";
-import enterOutlined from "@/assets/svg/enter_outlined.svg?component";
-import Bookmark2Line from "@iconify-icons/ri/bookmark-2-line";
+import { useResizeObserver } from '@vueuse/core';
+import { useEpThemeStoreHook } from '@/store/modules/epTheme';
+import { useRenderIcon } from '@/components/ReIcon/src/hooks';
+import { ref, computed, getCurrentInstance, onMounted } from 'vue';
+import enterOutlined from '@/assets/svg/enter_outlined.svg?component';
+import Bookmark2Line from '@iconify-icons/ri/bookmark-2-line';
 
 interface optionsItem {
   path: string;
@@ -20,8 +20,8 @@ interface Props {
 }
 
 interface Emits {
-  (e: "update:value", val: string): void;
-  (e: "enter"): void;
+  (e: 'update:value', val: string): void;
+  (e: 'enter'): void;
 }
 
 const resultRef = ref();
@@ -34,9 +34,9 @@ const itemStyle = computed(() => {
   return item => {
     return {
       background:
-        item?.path === active.value ? useEpThemeStoreHook().epThemeColor : "",
-      color: item.path === active.value ? "#fff" : "",
-      fontSize: item.path === active.value ? "16px" : "14px"
+        item?.path === active.value ? useEpThemeStoreHook().epThemeColor : '',
+      color: item.path === active.value ? '#fff' : '',
+      fontSize: item.path === active.value ? '16px' : '14px'
     };
   };
 });
@@ -46,7 +46,7 @@ const active = computed({
     return props.value;
   },
   set(val: string) {
-    emit("update:value", val);
+    emit('update:value', val);
   }
 });
 
@@ -56,7 +56,7 @@ async function handleMouse(item) {
 }
 
 function handleTo() {
-  emit("enter");
+  emit('enter');
 }
 
 function resizeResult() {

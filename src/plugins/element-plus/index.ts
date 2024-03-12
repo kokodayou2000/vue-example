@@ -1,4 +1,4 @@
-import { App, Component } from "vue";
+import { App, Component } from 'vue';
 import {
   ElTag,
   ElAffix,
@@ -62,7 +62,7 @@ import {
   // 指令
   ElLoading,
   ElInfiniteScroll
-} from "element-plus";
+} from 'element-plus';
 
 // Directives
 const plugins = [ElLoading, ElInfiniteScroll];

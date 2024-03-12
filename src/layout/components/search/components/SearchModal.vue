@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { match } from "pinyin-pro";
-import { useRouter } from "vue-router";
-import SearchResult from "./SearchResult.vue";
-import SearchFooter from "./SearchFooter.vue";
-import { useNav } from "@/layout/hooks/useNav";
-import { ref, computed, shallowRef } from "vue";
-import { cloneDeep, isAllEmpty } from "@pureadmin/utils";
-import { useDebounceFn, onKeyStroke } from "@vueuse/core";
-import { usePermissionStoreHook } from "@/store/modules/permission";
-import Search from "@iconify-icons/ri/search-line";
+import { match } from 'pinyin-pro';
+import { useRouter } from 'vue-router';
+import SearchResult from './SearchResult.vue';
+import SearchFooter from './SearchFooter.vue';
+import { useNav } from '@/layout/hooks/useNav';
+import { ref, computed, shallowRef } from 'vue';
+import { cloneDeep, isAllEmpty } from '@pureadmin/utils';
+import { useDebounceFn, onKeyStroke } from '@vueuse/core';
+import { usePermissionStoreHook } from '@/store/modules/permission';
+import Search from '@iconify-icons/ri/search-line';
 
 interface Props {
   /** 弹窗显隐 */
@@ -16,7 +16,7 @@ interface Props {
 }
 
 interface Emits {
-  (e: "update:value", val: boolean): void;
+  (e: 'update:value', val: boolean): void;
 }
 
 const { device } = useNav();
@@ -24,10 +24,10 @@ const emit = defineEmits<Emits>();
 const props = withDefaults(defineProps<Props>(), {});
 const router = useRouter();
 
-const keyword = ref("");
+const keyword = ref('');
 const scrollbarRef = ref();
 const resultRef = ref();
-const activePath = ref("");
+const activePath = ref('');
 const inputRef = ref<HTMLInputElement | null>(null);
 const resultOptions = shallowRef([]);
 const handleSearch = useDebounceFn(search, 300);
@@ -42,7 +42,7 @@ const show = computed({
     return props.value;
   },
   set(val: boolean) {
-    emit("update:value", val);
+    emit('update:value', val);
   }
 });
 
@@ -78,7 +78,7 @@ function search() {
   if (resultOptions.value?.length > 0) {
     activePath.value = resultOptions.value[0].path;
   } else {
-    activePath.value = "";
+    activePath.value = '';
   }
 }
 
@@ -87,7 +87,7 @@ function handleClose() {
   /** 延时处理防止用户看到某些操作 */
   setTimeout(() => {
     resultOptions.value = [];
-    keyword.value = "";
+    keyword.value = '';
   }, 200);
 }
 
@@ -130,14 +130,14 @@ function handleDown() {
 /** key enter */
 function handleEnter() {
   const { length } = resultOptions.value;
-  if (length === 0 || activePath.value === "") return;
+  if (length === 0 || activePath.value === '') return;
   router.push(activePath.value);
   handleClose();
 }
 
-onKeyStroke("Enter", handleEnter);
-onKeyStroke("ArrowUp", handleUp);
-onKeyStroke("ArrowDown", handleDown);
+onKeyStroke('Enter', handleEnter);
+onKeyStroke('ArrowUp', handleUp);
+onKeyStroke('ArrowDown', handleDown);
 </script>
 
 <template>

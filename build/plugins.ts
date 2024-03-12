@@ -1,15 +1,15 @@
-import { cdn } from "./cdn";
-import vue from "@vitejs/plugin-vue";
-import { viteBuildInfo } from "./info";
-import svgLoader from "vite-svg-loader";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import { viteMockServe } from "vite-plugin-mock";
-import { configCompressPlugin } from "./compress";
+import { cdn } from './cdn';
+import vue from '@vitejs/plugin-vue';
+import { viteBuildInfo } from './info';
+import svgLoader from 'vite-svg-loader';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import { viteMockServe } from 'vite-plugin-mock';
+import { configCompressPlugin } from './compress';
 // import ElementPlus from "unplugin-element-plus/vite";
-import { visualizer } from "rollup-plugin-visualizer";
-import removeConsole from "vite-plugin-remove-console";
-import themePreprocessorPlugin from "@pureadmin/theme";
-import { genScssMultipleScopeVars } from "../src/layout/theme";
+import { visualizer } from 'rollup-plugin-visualizer';
+import removeConsole from 'vite-plugin-remove-console';
+import themePreprocessorPlugin from '@pureadmin/theme';
+import { genScssMultipleScopeVars } from '../src/layout/theme';
 
 export function getPluginsList(
   command: string,
@@ -25,7 +25,7 @@ export function getPluginsList(
     VITE_CDN ? cdn : null,
     configCompressPlugin(VITE_COMPRESSION),
     // 线上环境删除console
-    removeConsole({ external: ["src/assets/iconfont/iconfont.js"] }),
+    removeConsole({ external: ['src/assets/iconfont/iconfont.js'] }),
     viteBuildInfo(),
     // 自定义主题
     themePreprocessorPlugin({
@@ -39,9 +39,9 @@ export function getPluginsList(
     // ElementPlus({}),
     // mock支持
     viteMockServe({
-      mockPath: "mock",
-      localEnabled: command === "serve",
-      prodEnabled: command !== "serve" && prodMock,
+      mockPath: 'mock',
+      localEnabled: command === 'serve',
+      prodEnabled: command !== 'serve' && prodMock,
       injectCode: `
           import { setupProdMockServer } from './mockProdServer';
           setupProdMockServer();
@@ -49,8 +49,8 @@ export function getPluginsList(
       logger: false
     }),
     // 打包分析
-    lifecycle === "report"
-      ? visualizer({ open: true, brotliSize: true, filename: "report.html" })
+    lifecycle === 'report'
+      ? visualizer({ open: true, brotliSize: true, filename: 'report.html' })
       : null
   ];
 }

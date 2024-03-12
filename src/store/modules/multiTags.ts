@@ -1,12 +1,12 @@
-import { defineStore } from "pinia";
-import { store } from "@/store";
-import { routerArrays } from "@/layout/types";
-import { multiType, positionType } from "./types";
-import { responsiveStorageNameSpace } from "@/config";
-import { isEqual, isBoolean, isUrl, storageLocal } from "@pureadmin/utils";
+import { defineStore } from 'pinia';
+import { store } from '@/store';
+import { routerArrays } from '@/layout/types';
+import { multiType, positionType } from './types';
+import { responsiveStorageNameSpace } from '@/config';
+import { isEqual, isBoolean, isUrl, storageLocal } from '@pureadmin/utils';
 
 export const useMultiTagsStore = defineStore({
-  id: "pure-multiTags",
+  id: 'pure-multiTags',
   state: () => ({
     // 存储标签页信息（路由信息）
     multiTags: storageLocal().getItem<StorageConfigs>(
@@ -50,11 +50,11 @@ export const useMultiTagsStore = defineStore({
       position?: positionType
     ): T {
       switch (mode) {
-        case "equal":
+        case 'equal':
           this.multiTags = value;
           this.tagsCache(this.multiTags);
           break;
-        case "push":
+        case 'push':
           {
             const tagVal = value as multiType;
             // 不添加到标签页
@@ -102,7 +102,7 @@ export const useMultiTagsStore = defineStore({
             this.tagsCache(this.multiTags);
           }
           break;
-        case "splice":
+        case 'splice':
           if (!position) {
             const index = this.multiTags.findIndex(v => v.path === value);
             if (index === -1) return;
@@ -112,7 +112,7 @@ export const useMultiTagsStore = defineStore({
           }
           this.tagsCache(this.multiTags);
           return this.multiTags;
-        case "slice":
+        case 'slice':
           return this.multiTags.slice(-1);
       }
     }

@@ -1,6 +1,6 @@
-import Cookies from "js-cookie";
-import { storageSession } from "@pureadmin/utils";
-import { useUserStoreHook } from "@/store/modules/user";
+import Cookies from 'js-cookie';
+import { storageSession } from '@pureadmin/utils';
+import { useUserStoreHook } from '@/store/modules/user';
 
 export interface DataInfo<T> {
   /** token */
@@ -15,8 +15,8 @@ export interface DataInfo<T> {
   roles?: Array<string>;
 }
 
-export const sessionKey = "user-info";
-export const TokenKey = "authorized-token";
+export const sessionKey = 'user-info';
+export const TokenKey = 'authorized-token';
 
 /** 获取`token` */
 export function getToken(): DataInfo<number> {
@@ -60,7 +60,7 @@ export function setToken(data: DataInfo<Date>) {
     setSessionKey(username, roles);
   } else {
     const username =
-      storageSession().getItem<DataInfo<number>>(sessionKey)?.username ?? "";
+      storageSession().getItem<DataInfo<number>>(sessionKey)?.username ?? '';
     const roles =
       storageSession().getItem<DataInfo<number>>(sessionKey)?.roles ?? [];
     setSessionKey(username, roles);
@@ -75,5 +75,5 @@ export function removeToken() {
 
 /** 格式化token（jwt格式） */
 export const formatToken = (token: string): string => {
-  return "Bearer " + token;
+  return 'Bearer ' + token;
 };

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import extraIcon from "./extraIcon.vue";
-import Search from "../search/index.vue";
-import Notice from "../notice/index.vue";
-import { isAllEmpty } from "@pureadmin/utils";
-import { useNav } from "@/layout/hooks/useNav";
-import { ref, toRaw, watch, onMounted, nextTick } from "vue";
-import { useRenderIcon } from "@/components/ReIcon/src/hooks";
-import { getParentPaths, findRouteByPath } from "@/router/utils";
-import { usePermissionStoreHook } from "@/store/modules/permission";
-import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
-import Setting from "@iconify-icons/ri/settings-3-line";
+import extraIcon from './extraIcon.vue';
+import Search from '../search/index.vue';
+import Notice from '../notice/index.vue';
+import { isAllEmpty } from '@pureadmin/utils';
+import { useNav } from '@/layout/hooks/useNav';
+import { ref, toRaw, watch, onMounted, nextTick } from 'vue';
+import { useRenderIcon } from '@/components/ReIcon/src/hooks';
+import { getParentPaths, findRouteByPath } from '@/router/utils';
+import { usePermissionStoreHook } from '@/store/modules/permission';
+import LogoutCircleRLine from '@iconify-icons/ri/logout-circle-r-line';
+import Setting from '@iconify-icons/ri/settings-3-line';
 
 const menuRef = ref();
 const defaultActive = ref(null);
