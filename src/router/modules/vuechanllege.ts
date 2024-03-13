@@ -19,6 +19,12 @@ export default {
       name: 'CssFeatures',
       component: () => import('@/views/vuechanllege/cssFeatures/index.vue'),
       meta: { title: 'css特性' }
+    },
+    {
+      path: '/components/index',
+      name: 'Components',
+      component: () => import('@/views/vuechanllege/components/index.vue'),
+      meta: { title: '组件' }
     }
   ]
 } as RouteConfigsTable;

@@ -2,6 +2,7 @@
 import DomPortal from '@/views/vuechanllege/builtIns/dom/DomPortal.vue';
 import Practical1 from '@/views/vuechanllege/builtIns/dom/Practical1.vue';
 import Practical2 from '@/views/vuechanllege/builtIns/dom/Practical2.vue';
+import OptimizePerfDirective from '@/views/vuechanllege/builtIns/OptimizePerfDirective.vue';
 
 defineOptions({
   name: 'BuiltIns'
@@ -19,6 +20,9 @@ defineOptions({
       </div>
       <div>
         <Practical2 />
+      </div>
+      <div>
+        <OptimizePerfDirective />
       </div>
     </div>
   </div>
