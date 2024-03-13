@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h } from 'vue';
+import { h, VNode } from 'vue';
 
 interface TreeData {
   key: string;
@@ -9,35 +9,58 @@ interface TreeData {
 defineProps<{ data: TreeData[] }>();
 
 const TreeCompRender = props => {
-  return helper(props.root);
+  const list = props.root as TreeData[];
+  const deep = 0;
+  return list.map(item => {
+    return h(
+      'ul',
+      {
+        style: {
+          backgroundColor: '#33c6ff',
+          marginLeft: '0px'
+        }
+      },
+      genTree(item, deep)
+    );
+  });
 };
 
-const helper = (root: TreeData) => {
-  // TODO sos 我不会递归
-  console.log(root);
+const genTree = (node: TreeData, deep: number) => {
   // 假如没有children直接返回即可
-  if (!root.children) {
+  if (!node.children) {
     return h(
       'li',
       {
         style: {
-          backgroundColor: 'green'
+          backgroundColor: '#ee6' + deep * 100,
+          marginLeft: deep * 10 + 'px'
         }
       },
-      root.title
+      node.title
     );
   }
-  const vNodeList = [];
-  root.children.forEach(item => {
-    const h = helper(item);
-    vNodeList.push(h);
-    console.log(vNodeList.length);
+
+  const tempTree = [] as VNode[];
+  node.children.forEach(item => {
+    tempTree.push(genTree(item, deep + 1));
   });
-  console.log(vNodeList.length);
-  return h('ul', vNodeList);
+
+  return h(
+    'li',
+    {
+      key: node.title,
+      style: {
+        backgroundColor: '#9bc' + deep * 100,
+        marginLeft: deep * 10 + 'px'
+      }
+    },
+    node.title,
+    tempTree
+  );
 };
 </script>
 
 <template>
-  <TreeCompRender v-for="item in data" :root="item" :key="item.key" />
+  <h2>树组件</h2>
+  <TreeCompRender :root="data" />
 </template>
