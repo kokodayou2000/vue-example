@@ -21,11 +21,12 @@ const requestHandler = async (
   // }
   // return config
   // eslint-disable-next-line no-console
-  const token = localStorage.getItem('school-token');
-  if (config.headers && token) {
-    // TODO 检查后端是否使用的是 x-token
-    config.headers['x-token'] = token;
-  }
+  // const token = localStorage.getItem('school-token');
+  // if (config.headers && token) {
+  //   // TODO 检查后端是否使用的是 x-token
+  config.headers['x-token'] =
+    'p-projecteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJub3JtYWwiLCJpZCI6IjE3NTc2NjUzNDE3MDQ3NjEzNDYiLCJhdmF0YXJVcmwiOiIiLCJuaWNrbmFtZSI6IndlYiBkZWZhdWx0IG5hbWUiLCJpYXQiOjE3MDc5NjUxNjUsImV4cCI6MTcxODMzMzE2NX0.Uaq6hDxDPC8zuyk2Y-XTEriD1Csn6iHW3e4cGBCvyrM';
+  // }
   return config;
 };
 

@@ -2,6 +2,11 @@ export interface IHeadList {
   index: number;
   message: string;
 }
+interface MyCMCData {
+  [key: string]: {
+    [key: string]: string[];
+  };
+}
 
 export interface IPicker {
   majorName: string;
@@ -91,7 +96,7 @@ export interface IPopup {
 }
 
 export interface IPopupValue {
-  CollegeName: string;
+  collegeName: string;
   majorName: string;
-  ClassName: string;
+  className: string;
 }

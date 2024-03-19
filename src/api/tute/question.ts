@@ -5,7 +5,7 @@ import type {
   IQuestionBank,
   IUpdateItem
 } from '@/api/types/question';
-import { useGet, usePost } from './base';
+import { useDelete, useGet, usePost } from './base';
 
 // 获取全部题库列表
 export const fetchQuestionBankData = () => {
@@ -52,4 +52,27 @@ export const updateQuestionBank = (bankId: string) => {
   return useGet<IUpdateItem, IUpdateItem>(
     `/question/api/v1/question/updateQuestionListByBankId/${bankId}`
   );
+};
+
+export const uploadQuestionList = () => {
+  return useGet<IQuestion[], IQuestion[]>(
+    `/question/api/v1/question/uploadQuestionList`
+  );
+};
+
+export const fakeDeleteQuestionList = () => {
+  return useGet<IQuestion[], IQuestion[]>(
+    `/question/api/v1/question/fakeDeleteList`
+  );
+};
+
+export const fakeDeleteQuestion = (id: string) => {
+  return useDelete(`/question/api/v1/question/fakeDeleteQuestion/${id}`);
+};
+
+export const realDeleteQuestion = (id: string) => {
+  return useGet(`/question/api/v1/question/fakeDeleteQuestion/${id}`);
+};
+export const passQuestion = (id: string) => {
+  return usePost(`/question/api/v1/question/pass/${id}`);
 };
