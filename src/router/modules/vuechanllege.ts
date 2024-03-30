@@ -5,7 +5,7 @@ export default {
     icon: 'informationLine',
     title: 'vue挑战赛',
     // showLink: false,
-    rank: 9
+    rank: 12
   },
   children: [
     {

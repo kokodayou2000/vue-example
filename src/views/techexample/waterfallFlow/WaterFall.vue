@@ -24,16 +24,20 @@ import { computed, onMounted, onUnmounted, reactive, ref } from 'vue';
 import type { IImageItem, IWaterFallProps } from '../type';
 import { debounce, rafThrottle } from '../tool';
 
+// 组件参数
 const props = defineProps<IWaterFallProps>();
 
+// 插槽
 defineSlots<{
   item(props: { item: IImageItem }): any;
 }>();
-
+// 元素
 const contentRef = ref<HTMLDivElement>();
 
+// 记录行高
 const columnHeight = ref<number[]>([]);
 
+// 图片位置
 const imagePos = ref<
   {
     x: number;
@@ -41,9 +45,10 @@ const imagePos = ref<
   }[]
 >([]);
 
+// 视口状态
 const state = reactive({
   loading: false,
-  isfinish: false,
+  isFinish: false,
   page: 1,
   imageWidth: 0,
   imageList: [] as IImageItem[]
@@ -66,17 +71,18 @@ const min = computed(() => {
   };
 });
 
+// 获取图片列表
 const getImageList = async (
   page: number,
   pageSize: number,
   isFirst: boolean
 ) => {
-  if (state.isfinish) return;
+  if (state.isFinish) return;
   state.loading = true;
   const list = await props.request(page, pageSize);
   state.page++;
   if (!list.length) {
-    state.isfinish = true;
+    state.isFinish = true;
     return;
   }
   computedImagePos(list, isFirst);
@@ -84,6 +90,7 @@ const getImageList = async (
   state.loading = false;
 };
 
+// 计算图片位置
 const computedImagePos = (list: IImageItem[], isFirst: boolean) => {
   list.forEach((item, index) => {
     const imageHeight = Math.floor(
@@ -111,7 +118,7 @@ const computedImagePos = (list: IImageItem[], isFirst: boolean) => {
     }
   });
 };
-
+// 滚动时间，使用 rafThrottle 节流
 const handleScroll = rafThrottle(() => {
   const { scrollTop, clientHeight, scrollHeight } = contentRef.value!;
   const bottom = scrollHeight - clientHeight - scrollTop;
