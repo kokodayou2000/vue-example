@@ -8,11 +8,19 @@ export default {
   },
   children: [
     {
-      path: '/algorithm/index',
-      name: '简单算法',
-      component: () => import('@/views/algorithm/index.vue'),
+      path: '/algorithm/search/BinarySearch',
+      name: '二分搜索',
+      component: () => import('@/views/algorithm/search/BinarySearch.vue'),
       meta: {
         title: '简单算法'
+      }
+    },
+    {
+      path: '/algorithm/test/Test',
+      name: '测试',
+      component: () => import('@/views/algorithm/test/Test.vue'),
+      meta: {
+        title: '测试'
       }
     }
   ]
