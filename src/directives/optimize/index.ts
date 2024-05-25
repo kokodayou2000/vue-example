@@ -8,7 +8,7 @@ import {
 import { useEventListener } from '@vueuse/core';
 import type { Directive, DirectiveBinding } from 'vue';
 
-/** 防抖（v-optimize或v-optimize:debounce）、节流（v-optimize:throttle）指令 */
+/** 防抖（v-optimize或v-optimize:debounce）、节流（v-optimize:lodash_throttle）指令 */
 export const optimize: Directive = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
     const { value } = binding;
@@ -48,7 +48,7 @@ export const optimize: Directive = {
       }
     } else {
       throw new Error(
-        '[Directive: optimize]: only `debounce` and `throttle` are supported'
+        '[Directive: optimize]: only `debounce` and `lodash_throttle` are supported'
       );
     }
   }

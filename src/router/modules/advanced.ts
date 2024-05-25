@@ -14,10 +14,16 @@ export default {
       meta: { title: '防抖组件' }
     },
     {
-      path: '/advanced/throttle/Throttle',
+      path: '/advanced/lodash_throttle/Throttle',
       name: 'Throttle',
       component: () => import('@/views/advanced/throttle/Throttle.vue'),
       meta: { title: '分流组件' }
+    },
+    {
+      path: '/advanced/canvas/Canvas',
+      name: 'Throttle',
+      component: () => import('@/views/advanced/canvas/Canvas.vue'),
+      meta: { title: 'canvas' }
     }
   ]
 } as RouteConfigsTable;
