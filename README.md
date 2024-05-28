@@ -13,5 +13,8 @@
 - 一些前端业务代码工具库
   - https://github.com/proYang/outils
 - 小游戏
+
   - https://flexboxfroggy.com/
-  -
+
+- typescript 学习
+  - https://github.com/type-challenges/type-challenges
