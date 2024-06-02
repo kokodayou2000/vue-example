@@ -15,10 +15,10 @@ export default {
       meta: { title: '瀑布流' }
     },
     {
-      path: '/virtualList/index',
-      name: 'virtualList',
-      component: () => import('@/views/techexample/virtualList/index.vue'),
-      meta: { title: '虚拟列表' }
+      path: '/drag/ClassTable',
+      name: 'ClassTable',
+      component: () => import('@/views/techexample/drag/ClassTable.vue'),
+      meta: { title: '拖拽课程表' }
     }
   ]
 } as RouteConfigsTable;
