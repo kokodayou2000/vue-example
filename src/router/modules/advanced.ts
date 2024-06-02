@@ -24,6 +24,13 @@ export default {
       name: 'Throttle',
       component: () => import('@/views/advanced/canvas/Canvas.vue'),
       meta: { title: 'canvas' }
+    },
+    {
+      path: '/advanced/infiniteScroll/InfiniteScroll',
+      name: 'InfiniteScroll',
+      component: () =>
+        import('@/views/advanced/infiniteScroll/InfiniteScroll.vue'),
+      meta: { title: '无限滚动' }
     }
   ]
 } as RouteConfigsTable;
