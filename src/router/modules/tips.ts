@@ -24,6 +24,12 @@ export default {
       name: 'Theme',
       component: () => import('@/views/tips/cssTheme/Theme.vue'),
       meta: { title: '背景颜色' }
+    },
+    {
+      path: '/tips/pageStuttering/PageStuttering',
+      name: 'pageStuttering',
+      component: () => import('@/views/tips/pageStuttering/PageStuttering.vue'),
+      meta: { title: '检测用户卡顿' }
     }
   ]
 } as RouteConfigsTable;
