@@ -30,6 +30,12 @@ export default {
       name: 'pageStuttering',
       component: () => import('@/views/tips/pageStuttering/PageStuttering.vue'),
       meta: { title: '检测用户卡顿' }
+    },
+    {
+      path: '/tips/heavyComp/index',
+      name: 'heavyComp',
+      component: () => import('@/views/tips/heavyComp/index.vue'),
+      meta: { title: '使用 defer hooks 优化用户体验 ' }
     }
   ]
 } as RouteConfigsTable;
